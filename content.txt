@@ -1,0 +1,47 @@
+FCC Learn Recursion - Building Decimal to Binary Converter
+
+CONTENT:
+1. element.addEventListener('onkeydown', callback_function);
+  > event triggered when key is pressed
+  > ex: 
+  numberInput.addEventListener('keydown', () => {});
+
+2. (KNOWLEDGE) whenever an event is triggered an event object is created automatically.
+  > We can log the event and see what happen when a certain event is triggered.
+  > ex:
+  numberInput.addEventListener("keydown", (e) => {
+    console.log(e);
+  });
+
+3. e.key
+  >  tells you the string value of the key that was pressed.
+  > ex:
+  numberInput.addEventListener("keydown", (e) => {
+    console.log(e.key);
+  });
+
+4. parseInt(string);
+  > A good way to check and normalize numbers in JavaScript is to use the built-in parseInt() function, which converts a string into an integer or whole number. parseInt() takes at least one argument, a string to be converted into an integer, and returns either an integer or NaN which stands for Not a Number. 
+  > ex:
+  parseInt(2.2); // 2
+  parseInt("2e+3"); // 2
+  parseInt("e") // NaN
+
+5. isNaN('')
+  > This function takes in a string or number as an argument, and returns true if it evaluates to NaN.
+  > ex:
+  isNaN("test"); // true
+  isNaN(2); // false
+  isNaN("3.5"); // false
+
+6. (KNOWLEDGE) About Binary
+  > Binary numbers are a base-2 number system. Unlike the base-10 or decimal number system we use every day that uses 10 digits (0-9) to form numbers, the binary number system only has two digits, 0 and 1. In computer science, these binary digits are called bits, and are the smallest unit of data computers can process. For computers, 0 represents false or "off", and 1 represents true or "on".
+  > In the base-2 number system, the rightmost digit represents the ones place, the next digit to the left represents the twos place, then the fours place, then the eights place, and so on. In this system, each digit's place value is two times greater than the digit to its right.
+  > binary order in 8 bit or 1 byte:
+  128 | 64 | 32 | 16 | 8 | 4 | 2 | 1
+  > ex decimal to binary:
+  1. 118 = "01110110";
+  2. 3 = "00000011";
+
+7.  
+
