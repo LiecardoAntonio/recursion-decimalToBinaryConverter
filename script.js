@@ -1,8 +1,33 @@
 const numberInput = document.getElementById('number-input');
 const convertBtn = document.getElementById('convert-btn');
 const result = document.getElementById('result');
+const animationContainer = document.getElementById('animation-container');
 
-let animationData = []; // array of objects to store data for each frame of the animation.
+let animationData = [
+  //object to represent the first frame of your animation. Your object should have two properties or keys: inputVal, and addElDelay.
+  {
+    //inputVal will represent the value of the input each time your recursive function runs. And addElDelay will be the delay between adding DOM elements to the page.
+    inputVal: 5,
+    addElDelay: 1000,
+    msg: 'decimalToBinary(5) returns "10" + 1 (5 % 2). Then it pops off the stack.',
+    showMsgDelay: 15000,
+    removeElDelay: 20000,
+  },
+  {
+    inputVal: 2,
+    addElDelay: 1500,
+    msg: 'decimalToBinary(2) returns "1" + 0 (2 % 2) and gives that value to the stack below. Then it pops off the stack.',
+    showMsgDelay: 10000,
+    removeElDelay: 15000,
+  },
+  {
+    inputVal: 1,
+    addElDelay: 2000,
+    msg: 'decimalToBinary(1) returns "1" (base case) and gives that value to the stack below. Then it pops off the stack.',
+    showMsgDelay: 5000,
+    removeElDelay: 10000
+  }
+]; // array of objects to store data for each frame of the animation.
 
 // the function below illustrate how recursion works
 const countDownAndUp = (number) => {
@@ -74,15 +99,40 @@ function decimalToBinary(input) {
 
 // showing the animation of how the recursive function works on converting the decimal to binary
 function showAnimation(){
-  setTimeout(() => {
-    console.log("free");
-  }, 500)
-  setTimeout(() => {
-    console.log("Code");
-  }, 1000);
-  setTimeout(() => {
-    console.log("Camp");
-  }, 1500)
+  // setTimeout(() => {
+  //   console.log("free");
+  // }, 500)
+  // setTimeout(() => {
+  //   console.log("Code");
+  // }, 1000);
+  // setTimeout(() => {
+  //   console.log("Camp");
+  // }, 1500)
+
+  //improvement
+  result.innerText = "Call Stack Animation";
+
+  animationData.forEach((obj) => {
+    setTimeout(() => {
+      animationContainer.innerHTML += `
+        <p id="${obj.inputVal}" class="animation-frame">
+          decimalToBinary(${obj.inputVal})
+        </p>
+      `;
+    }, obj.addElDelay); //create the element for the animation
+
+    setTimeout(() => {
+      document.getElementById(obj.inputVal).textContent = obj.msg;
+    }, obj.showMsgDelay); //show the message
+
+    setTimeout(() => {
+      document.getElementById(obj.inputVal).remove();
+    }, obj.removeElDelay); //remove the message
+
+    setTimeout(() => {
+      result.textContent = decimalToBinary(5);
+    }, 20000); //show the decimal to binary result of 5;
+  })
 }
 
 //before improvements
