@@ -74,3 +74,30 @@ CONTENT:
   ];
   > When a() is called, it creates a callstack, with a as the first item, b as the second, and lastly c, and coz stack is using LIFO concept, c is excuted first, and after it finishes c removed from the stack, and b is then to be executed, continue again until the stack is empty.
 
+8. String function in JavaScript  
+  > For a reliable way to convert a value into a string, even falsy values like null and undefined, you can use the String() function.
+  > ex:
+  const num = 5;
+  console.log(String(num)); // "5"
+  console.log(String(null)); // "null"
+
+9. setTimeout(() => {}, time)
+  > The setTimeout function takes two arguments: a callback function and a number representing the time in milliseconds to wait before executing the callback function.
+  > ex:
+  setTimeout(() => {
+    console.log("Hello, world!");
+  }, 3000);
+  > the log above will appear after 3000ms == 3seconds
+  > NOTE: setTimeout() function is asynchronous, meaning that it doesn't stop the execution of the rest of your code.
+  > ex:
+  console.log('free');
+  setTimeout(() => {
+    console.log("Code");
+  }, 1000);
+  console.log('Camp');
+  > the result of the above code is: freeCampCode instead of freeCodeCamp, the explanation is above.
+  > While asynchronous, or async, code can be difficult to understand at first, it has many advantages. One of the most important is that it allows you to write non-blocking code.
+  > For example, imagine you're baking a cake, and you put the cake in the oven and set a timer. You don't have to sit in front of the oven waiting the entire time – you can wash dishes, read a book, or do anything else while you wait for the timer to go off.> Async code works in a similar way. You can start an async operation and other parts of your code will still work while that operation is running.
+
+10. 
+

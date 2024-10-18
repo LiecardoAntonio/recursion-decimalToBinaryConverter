@@ -2,6 +2,8 @@ const numberInput = document.getElementById('number-input');
 const convertBtn = document.getElementById('convert-btn');
 const result = document.getElementById('result');
 
+let animationData = []; // array of objects to store data for each frame of the animation.
+
 // the function below illustrate how recursion works
 const countDownAndUp = (number) => {
   console.log(number);
@@ -54,7 +56,33 @@ function decimalToBinary(input) {
   // result.innerText = binary;
 
   //improvements 2 (using recursive)
-  
+  // if(input == 0) {
+  //   return '0';
+  // } else if(input === 1) {
+  //   //if you convert 0 into binary, 0 is displayed on the page. But now when you convert other numbers greater than 0, your binary number starts with a leading 0. For example, if you convert 1, the result is 01. But if you think about it, 0 and 1 in base-10 always convert to 0 and 1 in base-2, respectively. So you can add another base case to handle when input is 1.
+  //   return '1';
+  // } else {
+  //   return decimalToBinary(Math.floor(input / 2)) + (input % 2);
+  // }
+  // upgrade below:
+  if (input === 0 || input === 1) {
+    return String(input);
+  } else {
+    return decimalToBinary(Math.floor(input / 2)) + (input % 2);
+  }
+}
+
+// showing the animation of how the recursive function works on converting the decimal to binary
+function showAnimation(){
+  setTimeout(() => {
+    console.log("free");
+  }, 500)
+  setTimeout(() => {
+    console.log("Code");
+  }, 1000);
+  setTimeout(() => {
+    console.log("Camp");
+  }, 1500)
 }
 
 //before improvements
@@ -72,11 +100,20 @@ function decimalToBinary(input) {
 // result.innerText = remainders.reverse().join(''); //the binary result
 
 function checkUserInput() {
-  if (!numberInput.value || isNaN(parseInt(numberInput.value)) || parseInt(numberInput.value)<0) {
+  const inputInt = parseInt(numberInput.value);
+
+  if (!numberInput.value || isNaN(inputInt) || inputInt<0) {
     alert("Please provide a decimal number greater than or equal to 0");
     return;
   }
-  decimalToBinary(parseInt(numberInput.value));
+
+  //if the input = 5, create animation on how the recursive function works.
+  if(inputInt === 5) {
+    showAnimation();
+    return;
+  }
+
+  result.textContent = decimalToBinary(inputInt);
   numberInput.value = ''; //clear the input field
 };
 
